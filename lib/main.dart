@@ -73,7 +73,7 @@ void _refreshCounter(){
                 ),
               ),
               Text(
-                '5',
+                '$_counter',
                 style: TextStyle(
                   fontSize: 24,
                   color: Colors.red,
@@ -89,15 +89,15 @@ void _refreshCounter(){
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: _incrementCounter,
                 child: Icon(Icons.add),
               ),
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: _refreshCounter,
                 child: Icon(Icons.refresh),
               ),
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: _decrementCounter,
                 child: Icon(Icons.remove),
               ),  
             ],
