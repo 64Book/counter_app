@@ -1,10 +1,54 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyCounterApp());
+}
+
+class MyCounterApp extends StatelessWidget {
+  const MyCounterApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+int _counter=0;
+
+// สร้าง method เพิ่ม
+void _incrementCounter(){
+  setState(() {
+    _counter++;
+  });
+}
+void _decrementCounter(){
+  setState(() {
+    _counter--;
+  });
+}
+void _refreshCounter(){
+  setState(() {
+    if(_counter>0){
+      _counter = _counter-_counter;
+    }
+  });
+}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           leading: Icon(Icons.home),
           title: Text('Counter App'),
@@ -59,16 +103,6 @@ void main() {
             ],
           ),
         ),
-      ),
-    ),
-  );
-}
-
-class MyCounterApp extends StatelessWidget {
-  const MyCounterApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+      );
   }
 }
